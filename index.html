@@ -4,29 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Madiha Farman</title>
-<meta name="description" content="Madiha Farman: computer science undergraduate at Kohat University of Science and Technology working on language models, retrieval, and Urdu NLP.">
+<meta name="description" content="Madiha Farman is a computer science student at Kohat University of Science and Technology, building a reasoning-capable Urdu LLM for her final year project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbfbf9;
-    --ink: #1b2330;
-    --muted: #5b6573;
-    --rule: #dcdfe4;
-    --accent: #1f4e8c;
-    --accent-soft: #e8eef7;
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
-    --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --bg: #0a0f1a;
+    --surface: #111a2b;
+    --ink: #e5ecf6;
+    --muted: #8fa0b8;
+    --rule: #1f2b40;
+    --accent: #38d6f5;
+    --accent2: #a78bfa;
+    --grid: rgba(56, 214, 245, 0.06);
+    --header-bg: rgba(10, 15, 26, 0.82);
+    --sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: light) {
     :root {
-      --bg: #12161c;
-      --ink: #e6e9ee;
-      --muted: #98a2b0;
-      --rule: #2a313b;
-      --accent: #8db4ea;
-      --accent-soft: #1b2636;
+      --bg: #f6f9fc;
+      --surface: #ffffff;
+      --ink: #0f1b2d;
+      --muted: #55657d;
+      --rule: #d9e2ee;
+      --accent: #0a7fa3;
+      --accent2: #6d4fd6;
+      --grid: rgba(10, 127, 163, 0.07);
+      --header-bg: rgba(246, 249, 252, 0.85);
     }
   }
   * { box-sizing: border-box; }
@@ -36,279 +42,403 @@
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font-family: var(--serif);
-    font-size: 1.125rem;
-    line-height: 1.6;
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
   }
-  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
   a:hover { text-decoration-thickness: 2px; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
-  .page {
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 3.5rem 1.5rem 4rem;
-    display: grid;
-    grid-template-columns: 260px minmax(0, 1fr);
-    gap: 4rem;
-  }
-
-  /* Sidebar */
-  aside { position: sticky; top: 3.5rem; align-self: start; font-family: var(--sans); font-size: 0.95rem; }
-  aside h1 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 2.6rem;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.75rem;
-  }
-  aside .role { color: var(--muted); margin: 0 0 1.5rem; line-height: 1.5; }
-  aside ul { list-style: none; padding: 0; margin: 0 0 1.75rem; }
-  aside li { margin-bottom: 0.4rem; }
-  nav { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
-  nav a { display: block; color: var(--muted); text-decoration: none; padding: 0.2rem 0; }
-  nav a:hover { color: var(--ink); }
-
-  /* Main */
-  main section { margin-bottom: 3rem; }
-  h2 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 1.5rem;
-    letter-spacing: -0.01em;
-    margin: 0 0 1.1rem;
-    padding-bottom: 0.4rem;
+  /* Header */
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--rule);
   }
-  h3 { font-size: 1.125rem; font-weight: 600; margin: 0; }
+  .top-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .brand { color: var(--ink); font-weight: 600; text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
+  .brand:hover { color: var(--accent); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.4rem; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; padding: 0.2rem 0; border-bottom: 2px solid transparent; }
+  nav a:hover { color: var(--ink); }
+  nav a.active { color: var(--ink); border-bottom-color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 36px 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-inner { max-width: 1000px; margin: 0 auto; padding: 5rem 1.5rem 4rem; }
+  .hero h1 {
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+  }
+  .status {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+  .status .prompt { color: var(--accent2); margin-right: 0.5rem; }
+  .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    margin-left: 0.2rem;
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+  .tagline { font-size: 1.25rem; color: var(--muted); max-width: 40ch; margin: 0 0 2rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .links a {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Content */
+  main { max-width: 1000px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+  section { padding-top: 3.5rem; scroll-margin-top: 3.5rem; }
+  h2 {
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    margin-top: 0.6rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+  }
+  h3 { font-size: 1.15rem; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
   p { margin: 0 0 1rem; max-width: 68ch; }
 
-  .lede { font-size: 1.3rem; line-height: 1.5; max-width: 62ch; }
+  .about p { font-size: 1.1rem; }
 
-  .item { margin-bottom: 1.6rem; }
-  .item .meta {
-    font-family: var(--sans);
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin: 0.1rem 0 0.4rem;
-  }
-  .item ul { margin: 0.4rem 0 0; padding-left: 1.2rem; max-width: 68ch; }
-  .item li { margin-bottom: 0.35rem; }
+  .item { border-left: 2px solid var(--rule); padding: 0.1rem 0 0.1rem 1.25rem; margin-bottom: 2rem; }
+  .item:hover { border-left-color: var(--accent); }
+  .item.live { border-left-color: var(--accent2); }
+  .meta { font-size: 0.9rem; color: var(--muted); margin: 0.2rem 0 0.6rem; }
+  .meta .date { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); margin-right: 0.6rem; }
+  .item ul.points { margin: 0.4rem 0 0; padding-left: 1.1rem; max-width: 68ch; }
+  .item ul.points li { margin-bottom: 0.4rem; }
+  .item ul.points li::marker { color: var(--accent); }
 
-  .news { list-style: none; padding: 0; margin: 0; }
-  .news li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; margin-bottom: 0.7rem; }
-  .news time { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); padding-top: 0.25rem; }
-
-  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0 0; padding: 0; list-style: none; }
-  .tags li {
-    font-family: var(--sans);
-    font-size: 0.78rem;
-    background: var(--accent-soft);
-    color: var(--accent);
-    padding: 0.15rem 0.55rem;
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent2);
+    border: 1px solid var(--accent2);
+    padding: 0 0.45rem;
     border-radius: 3px;
-    margin: 0;
+    margin-left: 0.6rem;
+    vertical-align: middle;
   }
 
-  dl.skills { display: grid; grid-template-columns: 9rem 1fr; gap: 0.5rem 1rem; margin: 0; font-family: var(--sans); font-size: 0.95rem; }
-  dl.skills dt { color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.8rem 0 0; padding: 0; list-style: none; }
+  .tags li {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    padding: 0.1rem 0.55rem;
+    border-radius: 3px;
+  }
+
+  .news { list-style: none; padding: 0; margin: 2rem 0 0; max-width: 68ch; }
+  .news li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; margin-bottom: 0.6rem; font-size: 0.98rem; }
+  .news time { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); padding-top: 0.2rem; }
+
+  .reading {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent2);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    max-width: 68ch;
+  }
+  .reading .label { font-family: var(--mono); font-size: 0.78rem; color: var(--accent2); display: block; margin-bottom: 0.2rem; }
+  .reading strong { font-weight: 600; }
+
+  dl.skills { display: grid; grid-template-columns: 10rem 1fr; gap: 0.7rem 1.5rem; margin: 0; }
+  dl.skills dt { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); padding-top: 0.15rem; }
   dl.skills dd { margin: 0; }
 
-  footer { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+  footer { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.85rem; font-family: var(--mono); }
 
-  @media (max-width: 820px) {
-    .page { grid-template-columns: 1fr; gap: 2rem; padding-top: 2rem; }
-    aside { position: static; }
-    aside h1 { font-size: 2.2rem; }
-    nav { display: none; }
+  @media (max-width: 760px) {
+    .top-inner { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding-bottom: 0.5rem; }
+    nav { width: 100%; overflow-x: auto; scrollbar-width: none; }
+    nav::-webkit-scrollbar { display: none; }
+    nav ul { gap: 1.1rem; white-space: nowrap; padding-bottom: 0.3rem; }
+    section { scroll-margin-top: 6rem; }
+    .hero-inner { padding: 3rem 1.5rem 2.5rem; }
     .news li { grid-template-columns: 1fr; gap: 0; }
     dl.skills { grid-template-columns: 1fr; gap: 0.1rem; }
-    dl.skills dd { margin-bottom: 0.7rem; }
+    dl.skills dd { margin-bottom: 0.8rem; }
   }
 </style>
 </head>
 <body>
-<div class="page">
 
-  <aside>
-    <h1>Madiha Farman</h1>
-    <p class="role">Undergraduate in Computer Science<br>Kohat University of Science and Technology, Pakistan</p>
-    <ul>
-      <li><a href="mailto:madihafarman22280@gmail.com">madihafarman22280@gmail.com</a></li>
-      <li><a href="https://github.com/MadihaFarman">GitHub</a></li>
-      <!-- Add your LinkedIn here once you have the URL:
-      <li><a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a></li> -->
-    </ul>
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="#top">Madiha Farman</a>
     <nav aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#news">News</a>
-      <a href="#projects">Projects</a>
-      <a href="#research">Research experience</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#education">Education</a>
-      <a href="#talks">Talks and service</a>
-      <a href="#skills">Skills</a>
-    </nav>
-  </aside>
-
-  <main>
-    <section id="about">
-      <p class="lede">I'm a computer science student working on language models, retrieval, and NLP for Urdu.</p>
-      <p>I study at Kohat University of Science and Technology (KUST), where I rank first in my cohort with a CGPA of 4.0/4.0. I spent the summer as a research intern at CallRollin, comparing Urdu language models and finding why Urdu text-to-speech mispronounces unvocalized text. I also build things: a bilingual retrieval chatbot for university documents, a small GPT-style model trained from scratch, and a legal case system built on 2,809 Supreme Court judgments.</p>
-      <p>I teach as well. I'm currently a teaching assistant for Object Oriented Programming at KUST, and I've taught Python and machine learning to beginners, clinicians, and non-technical students.</p>
-    </section>
-
-    <section id="news">
-      <h2>News</h2>
-      <ul class="news">
-        <li><time>Oct 2026</time><span>Finished a decoder-only Transformer trained on Tiny Shakespeare, built from scratch in PyTorch.</span></li>
-        <li><time>Sep 2026</time><span>Started as Teaching Assistant for Object Oriented Programming at the Institute of Computing, KUST.</span></li>
-        <li><time>Jul 2026</time><span>Joined CallRollin at the National Incubation Center, Islamabad, as a research intern on Urdu LLMs and TTS.</span></li>
-        <li><time>Jun 2026</time><span>Released the KUST AI Assistant, a bilingual RAG chatbot for university documents.</span></li>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#skills">Skills</a></li>
       </ul>
-    </section>
+    </nav>
+  </div>
+</header>
 
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <div class="item">
-        <h3>Shakespeare text generation with a decoder-only Transformer</h3>
-        <p class="meta">Oct 2026 · <a href="https://tinyurl.com/shakespeare-model">Code and notebook</a></p>
-        <p>A 10.8M-parameter GPT-style model (6 layers, 6 heads, 384-dimensional embeddings, 256-character context) written in PyTorch from the original Transformer and GPT-2 papers. I built it up from a bigram baseline, testing causal masking and scaled dot-product attention along the way. After 5,000 iterations on Tiny Shakespeare it reaches a train loss of 1.66 and a validation loss of 1.82.</p>
-        <ul class="tags"><li>PyTorch</li><li>Transformers</li><li>Language modeling</li></ul>
-      </div>
-
-      <div class="item">
-        <h3>KUST AI Assistant: a bilingual RAG chatbot</h3>
-        <p class="meta">Jun 2026 · <a href="https://tinyurl.com/KUST-AI-assistant">Project link</a></p>
-        <p>Answers questions about official KUST documents (university statutes, the Universities Act, semester regulations) in English, Urdu script, and Roman Urdu. It uses parent-child chunking to keep whole sections intact, and HyDE with query rewriting to improve retrieval on short queries. Every answer cites its source document and page number. It also supports voice input in English and Urdu through Whisper, with a Next.js frontend that handles right-to-left layout.</p>
-        <ul class="tags"><li>RAG</li><li>HyDE</li><li>Whisper</li><li>Next.js</li><li>Urdu NLP</li></ul>
-      </div>
-
-      <div class="item">
-        <h3>VocabLock</h3>
-        <p class="meta">May 2026 · <a href="https://tinyurl.com/vocablock">Project link</a></p>
-        <p>A Linux desktop app that reads new words from Obsidian reading notes, generates pronunciations, hints, and example sentences with the Groq API, and quizzes me through popup windows on a spaced-repetition schedule. It watches the notes folder for changes, so new words reach the quiz without manual steps.</p>
-        <ul class="tags"><li>Python</li><li>GTK3</li><li>SQLite</li><li>Spaced repetition</li></ul>
-      </div>
-
-      <div class="item">
-        <h3>AI Legal Case Management System</h3>
-        <p class="meta">Apr to May 2025 · <a href="https://tinyurl.com/legal-system-AI">Project link</a></p>
-        <p>Combines RAG-based precedent retrieval (HuggingFace embeddings and LLaMA-3.1, over 80% retrieval similarity) with two classifiers trained on 2,809 Supreme Court judgments. A voting ensemble predicts case category at 91.5% accuracy, and a stacking ensemble predicts priority at 95.2%. A Streamlit interface cut manual review effort by 70% in testing.</p>
-        <ul class="tags"><li>RAG</li><li>Ensemble learning</li><li>Streamlit</li></ul>
-      </div>
-    </section>
-
-    <section id="research">
-      <h2>Research experience</h2>
-      <div class="item">
-        <h3>Research Intern, LLM and TTS</h3>
-        <p class="meta">CallRollin, National Incubation Center, Islamabad · Jul to Sep 2026</p>
-        <ul>
-          <li>Compared three Urdu LLMs (Alif-8B, Qalb-8B, Riazi-8B) on training data, fine-tuning method, and published results. None of them combines broad task coverage with strong reasoning.</li>
-          <li>Proposed a five-step plan for the team's own Urdu LLM: test base models (Qwen3, Llama-3.1, Gemma), build a billion-token Urdu corpus, fine-tune on human-written chain-of-thought data beyond math, set up an independent evaluation suite, and try RL-based reasoning tuning (GRPO).</li>
-          <li>Tested about 60 Urdu TTS outputs on unvocalized text and found about 55 mispronounced. I traced the errors to homograph ambiguity from missing diacritics (zair, zabar, pesh) and proposed a diacritization step before synthesis.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="teaching">
-      <h2>Teaching</h2>
-
-      <div class="item">
-        <h3>Teaching Assistant, Object Oriented Programming</h3>
-        <p class="meta">Institute of Computing, KUST · Sep 2026 to present · Instructor: Dr. Ali Zeb</p>
-        <ul>
-          <li>Support lesson plans, quiz grading, and lab materials for 3rd-semester Data Science students.</li>
-          <li>Lead live-coding sessions and small-group sessions on OOP in Python, and review student submissions.</li>
-          <li>Run the course portal on Piazza.</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <h3>Vocational Instructor, Computer Information and Technology</h3>
-        <p class="meta">Aghosh Alkhidmat Center, Alkhidmat Foundation, Kohat · Feb to Apr 2026</p>
-        <ul>
-          <li>Taught a 7-week digital skills course to 50+ students from non-technical backgrounds in the national Banoqabil program.</li>
-          <li>Taught the advanced modules on AI tools (NotebookLM, Claude Skills) and prompt engineering, with sessions on AI in biology, physics, and chemistry.</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <h3>Machine Learning Teaching Assistant</h3>
-        <p class="meta">Rehman Medical Institute, Peshawar · Jan to Apr 2025 · Supervisor: Dr. Saima Hassan</p>
-        <ul>
-          <li>Designed content on core ML algorithms for 25+ practicing clinicians in an AI-in-healthcare curriculum.</li>
-          <li>Ran hands-on labs in Python and pandas where clinicians built ML pipelines on their own datasets.</li>
-          <li>Delivered a module on ethical and safe use of AI in medicine, using IBM Watson Health as a case study.</li>
-        </ul>
-      </div>
-
-      <div class="item">
-        <h3>Python Instructor</h3>
-        <p class="meta">Dr. Saima Hassan's YouTube channel · Dec 2024 to Jan 2025</p>
-        <ul>
-          <li>Co-designed and taught a live 10-day Python course on Google Colab for 75 complete beginners.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div class="item">
-        <h3>BS in Computer Science</h3>
-        <p class="meta">Kohat University of Science and Technology · Nov 2023 to present</p>
-        <ul>
-          <li>CGPA 4.0/4.0, ranked 1st among 200+ students, with a full-tuition waiver in all six semesters so far.</li>
-          <li>Coursework: Calculus, Statistics, Linear Algebra, Artificial Intelligence, Machine Learning, Artificial Neural Networks, Data Structures, Design and Analysis of Algorithms, Object-Oriented Programming, Advanced Database.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <h3>Certificates</h3>
-        <ul>
-          <li>Machine Learning with Tree-Based Models in Python, DataCamp (2025)</li>
-          <li><a href="https://coursera.org/verify/GWASGHQJF3G1">Supervised Machine Learning: Regression and Classification</a>, DeepLearning.AI (2025)</li>
-          <li><a href="https://coursera.org/verify/66KM5H85W7M6">AI For Everyone</a>, DeepLearning.AI (2025)</li>
-          <li><a href="https://coursera.org/verify/DQG2BMGDMP34">Introduction to Software Engineering</a>, IBM (2025)</li>
-          <li><a href="https://coursera.org/verify/SJ429ST366EY">Programming Fundamentals</a>, Duke University (2024)</li>
-          <li>Aspire Leaders Program (in progress)</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="talks">
-      <h2>Talks and service</h2>
-      <div class="item">
-        <h3>Smarter Students in the Age of Smarter Machines</h3>
-        <p class="meta">KUST Incubation Center · Seminar for 50+ high school students · <a href="https://lnkd.in/p/da6pAcec">Post</a></p>
-        <p>Covered AI fundamentals, career pathways, and responsible use of technology.</p>
-      </div>
-      <div class="item">
-        <h3>Vice President, The Gen Byte Society</h3>
-        <p class="meta">Institute of Computing, KUST · Nov 2026 to present</p>
-        <p>Lead a team of 7 running hackathons, seminars, workshops, and study tours. I ran a GitHub workshop for 3rd and 5th semester students and organized a trip to GDG Peshawar's fest day.</p>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <dt>Languages</dt><dd>Python, Java, SQL, JavaScript, C++</dd>
-        <dt>ML and AI</dt><dd>PyTorch, Scikit-learn, TensorFlow, HuggingFace Transformers, NLP, XGBoost, AI agents</dd>
-        <dt>LLMs</dt><dd>OpenAI API, LLaMA, RAG pipelines, HyDE, LangChain, LangGraph, LangSmith, prompt engineering</dd>
-        <dt>Vector databases</dt><dd>Pinecone, FAISS, Qdrant, ChromaDB</dd>
-        <dt>Data and tools</dt><dd>Pandas, NumPy, FastAPI, Streamlit, Git</dd>
-        <dt>Spoken languages</dt><dd>Urdu and Pashto (native), English (fluent)</dd>
-      </dl>
-    </section>
-
-    <footer>
-      © 2026 Madiha Farman · Last updated November 2026
-    </footer>
-  </main>
-
+<div class="hero" id="top">
+  <div class="hero-inner">
+    <h1>Madiha Farman</h1>
+    <p class="status"><span class="prompt">&gt;</span>final year project: a reasoning-capable Urdu LLM<span class="cursor" aria-hidden="true"></span></p>
+    <p class="tagline">Computer science student at Kohat University of Science and Technology, Pakistan.</p>
+    <div class="links">
+      <!-- Replace YOUR-HANDLE with the part of your LinkedIn address after /in/ -->
+      <a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
+      <a href="https://github.com/MadihaFarman">GitHub</a>
+      <a href="mailto:madihafarman22280@gmail.com">madihafarman22280@gmail.com</a>
+    </div>
+  </div>
 </div>
+
+<main>
+
+  <section id="about" class="about">
+    <h2>About</h2>
+    <p>I'm a final-year computer science student at KUST, and most of what I work on has to do with language. My final year project is an Urdu LLM that covers a broad range of tasks and can also reason. When I compared the existing Urdu models, none of them managed both, so that's the gap I'm working on.</p>
+    <p>The question came out of my internship at CallRollin this summer. Besides comparing three Urdu models, I tested about 60 Urdu text-to-speech outputs and found around 55 with mispronounced words. Unvocalized Urdu leaves out the diacritics that tell you which word is meant, so the system has to guess, and it often guesses wrong.</p>
+    <p>I also build smaller things to see how they work. I trained a GPT-style model on Shakespeare, wrote a chatbot that answers questions about KUST regulations in English, Urdu and Roman Urdu, and made a legal case system from 2,809 Supreme Court judgments. And I teach: I'm a teaching assistant for OOP at KUST this semester, and I've taught Python and machine learning to beginners and to practicing doctors.</p>
+
+    <ul class="news">
+      <li><time>Nov 2026</time><span>Working on my final year project, a reasoning-capable Urdu LLM.</span></li>
+      <li><time>Oct 2026</time><span>Finished a decoder-only Transformer trained on Tiny Shakespeare.</span></li>
+      <li><time>Sep 2026</time><span>Started as Teaching Assistant for Object Oriented Programming at KUST.</span></li>
+      <li><time>Jul 2026</time><span>Joined CallRollin in Islamabad as a research intern on Urdu LLMs and TTS.</span></li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="item live">
+      <h3>Final year project: reasoning-capable Urdu LLM <span class="badge">in progress</span></h3>
+      <p class="meta"><span class="date">2026 to present</span>KUST</p>
+      <p>An Urdu language model that handles a broad range of tasks and can reason through problems, not just answer from pattern. I'll add details here as the work takes shape.</p>
+      <ul class="tags"><li>Urdu NLP</li><li>LLMs</li><li>Reasoning</li></ul>
+    </div>
+
+    <div class="item">
+      <h3>Shakespeare text generation with a decoder-only Transformer</h3>
+      <p class="meta"><span class="date">Oct 2026</span><a href="https://tinyurl.com/shakespeare-model">Code and notebook</a></p>
+      <p>A 10.8M-parameter GPT-style model (6 layers, 6 heads, 384-dimensional embeddings, 256-character context) written in PyTorch from the original Transformer and GPT-2 papers. I built it up from a bigram baseline and tested causal masking and scaled dot-product attention along the way. After 5,000 iterations on Tiny Shakespeare it reaches a train loss of 1.66 and a validation loss of 1.82.</p>
+      <ul class="tags"><li>PyTorch</li><li>Transformers</li><li>Language modeling</li></ul>
+    </div>
+
+    <div class="item">
+      <h3>KUST AI Assistant, a bilingual RAG chatbot</h3>
+      <p class="meta"><span class="date">Jun 2026</span><a href="https://tinyurl.com/KUST-AI-assistant">Project link</a></p>
+      <p>Answers questions about official KUST documents (university statutes, the Universities Act, semester regulations) in English, Urdu script and Roman Urdu. Parent-child chunking keeps whole sections intact, and HyDE with query rewriting helps retrieval on short queries. Every answer cites its source document and page number. Voice input works in English and Urdu through Whisper, and the Next.js frontend handles right-to-left layout.</p>
+      <ul class="tags"><li>RAG</li><li>HyDE</li><li>Whisper</li><li>Next.js</li><li>Urdu NLP</li></ul>
+    </div>
+
+    <div class="item">
+      <h3>VocabLock</h3>
+      <p class="meta"><span class="date">May 2026</span><a href="https://tinyurl.com/vocablock">Project link</a></p>
+      <p>A Linux desktop app that reads new words from my Obsidian reading notes, generates pronunciations, hints and example sentences with the Groq API, and quizzes me through popup windows on a spaced-repetition schedule. It watches the notes folder for changes, so new words reach the quiz without any manual step.</p>
+      <ul class="tags"><li>Python</li><li>GTK3</li><li>SQLite</li><li>Spaced repetition</li></ul>
+    </div>
+
+    <div class="item">
+      <h3>AI Legal Case Management System</h3>
+      <p class="meta"><span class="date">Apr to May 2025</span><a href="https://tinyurl.com/legal-system-AI">Project link</a></p>
+      <p>Combines RAG-based precedent retrieval (HuggingFace embeddings and LLaMA-3.1, over 80% retrieval similarity) with two classifiers trained on 2,809 Supreme Court judgments. A voting ensemble predicts case category at 91.5% accuracy, and a stacking ensemble predicts priority at 95.2%. In testing, the Streamlit interface cut manual review effort by 70%.</p>
+      <ul class="tags"><li>RAG</li><li>Ensemble learning</li><li>Streamlit</li></ul>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research experience</h2>
+    <div class="item">
+      <h3>Research Intern, LLM and TTS</h3>
+      <p class="meta"><span class="date">Jul to Sep 2026</span>CallRollin, National Incubation Center, Islamabad</p>
+      <ul class="points">
+        <li>Compared three Urdu LLMs (Alif-8B, Qalb-8B, Riazi-8B) on training data, fine-tuning method and published results. None of them combines broad task coverage with strong reasoning.</li>
+        <li>Proposed a five-step plan for the team's own Urdu LLM: test base models (Qwen3, Llama-3.1, Gemma), build a billion-token Urdu corpus, fine-tune on human-written chain-of-thought data beyond math, set up an independent evaluation suite, and try RL-based reasoning tuning (GRPO).</li>
+        <li>Tested about 60 Urdu TTS outputs on unvocalized text and found about 55 mispronounced. I traced the errors to homograph ambiguity from missing diacritics (zair, zabar, pesh) and proposed a diacritization step before synthesis.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+
+    <div class="item">
+      <h3>Teaching Assistant, Object Oriented Programming</h3>
+      <p class="meta"><span class="date">Sep 2026 to present</span>Institute of Computing, KUST. Instructor: Dr. Ali Zeb</p>
+      <ul class="points">
+        <li>Support lesson plans, quiz grading and lab materials for 3rd-semester Data Science students.</li>
+        <li>Lead live-coding sessions and small-group sessions on OOP in Python, and review student submissions.</li>
+        <li>Run the course portal on Piazza.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Vocational Instructor, Computer Information and Technology</h3>
+      <p class="meta"><span class="date">Feb to Apr 2026</span>Aghosh Alkhidmat Center, Alkhidmat Foundation, Kohat</p>
+      <ul class="points">
+        <li>Taught a 7-week digital skills course to 50+ students from non-technical backgrounds in the national Banoqabil program.</li>
+        <li>Taught the advanced modules on AI tools (NotebookLM, Claude Skills) and prompt engineering, with sessions on AI in biology, physics and chemistry.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Machine Learning Teaching Assistant</h3>
+      <p class="meta"><span class="date">Jan to Apr 2025</span>Rehman Medical Institute, Peshawar. Supervisor: Dr. Saima Hassan</p>
+      <ul class="points">
+        <li>Designed content on core ML algorithms for 25+ practicing clinicians in an AI-in-healthcare curriculum.</li>
+        <li>Ran hands-on labs in Python and pandas where clinicians built ML pipelines on their own datasets.</li>
+        <li>Delivered a module on ethical and safe use of AI in medicine, using IBM Watson Health as a case study.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3>Python Instructor</h3>
+      <p class="meta"><span class="date">Dec 2024 to Jan 2025</span>Dr. Saima Hassan's YouTube channel</p>
+      <ul class="points">
+        <li>Co-designed and taught a live 10-day Python course on Google Colab for 75 complete beginners.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="item">
+      <h3>BS in Computer Science</h3>
+      <p class="meta"><span class="date">Nov 2023 to present</span>Kohat University of Science and Technology</p>
+      <ul class="points">
+        <li>CGPA 4.0/4.0, ranked 1st among 200+ students, with a full-tuition waiver in all six semesters so far.</li>
+        <li>Coursework: Calculus, Statistics, Linear Algebra, Artificial Intelligence, Machine Learning, Artificial Neural Networks, Data Structures, Design and Analysis of Algorithms, Object-Oriented Programming, Advanced Database.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>Certificates</h3>
+      <ul class="points">
+        <li>Machine Learning with Tree-Based Models in Python, DataCamp (2025)</li>
+        <li><a href="https://coursera.org/verify/GWASGHQJF3G1">Supervised Machine Learning: Regression and Classification</a>, DeepLearning.AI (2025)</li>
+        <li><a href="https://coursera.org/verify/66KM5H85W7M6">AI For Everyone</a>, DeepLearning.AI (2025)</li>
+        <li><a href="https://coursera.org/verify/DQG2BMGDMP34">Introduction to Software Engineering</a>, IBM (2025)</li>
+        <li><a href="https://coursera.org/verify/SJ429ST366EY">Programming Fundamentals</a>, Duke University (2024)</li>
+        <li>Aspire Leaders Program (in progress)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="talks">
+    <h2>Talks and service</h2>
+    <div class="item">
+      <h3>Smarter Students in the Age of Smarter Machines</h3>
+      <p class="meta"><span class="date">Seminar</span>KUST Incubation Center, for 50+ high school students. <a href="https://lnkd.in/p/da6pAcec">Post</a></p>
+      <p>Covered AI fundamentals, career pathways and responsible use of technology.</p>
+    </div>
+    <div class="item">
+      <h3>Vice President, The Gen Byte Society</h3>
+      <p class="meta"><span class="date">Nov 2026 to present</span>Institute of Computing, KUST</p>
+      <p>I lead a team of 7 that runs hackathons, seminars, workshops and study tours. I ran a GitHub workshop for 3rd and 5th semester students and organized a trip to GDG Peshawar's fest day for 7th semester students.</p>
+    </div>
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <p>Reading. I keep notes on what I read in Obsidian, and the new words I pick up there feed VocabLock.</p>
+    <div class="reading">
+      <span class="label">currently reading</span>
+      <strong>The Laws of Human Nature</strong> by Robert Greene
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>languages</dt><dd>Python, Java, SQL, JavaScript, C++</dd>
+      <dt>ml and ai</dt><dd>PyTorch, Scikit-learn, TensorFlow, HuggingFace Transformers, NLP, XGBoost, AI agents</dd>
+      <dt>llms</dt><dd>OpenAI API, LLaMA, RAG pipelines, HyDE, LangChain, LangGraph, LangSmith, prompt engineering</dd>
+      <dt>vector databases</dt><dd>Pinecone, FAISS, Qdrant, ChromaDB</dd>
+      <dt>data and tools</dt><dd>Pandas, NumPy, FastAPI, Streamlit, Git</dd>
+      <dt>spoken</dt><dd>Urdu and Pashto (native), English (fluent)</dd>
+    </dl>
+  </section>
+
+</main>
+
+<footer>
+  Madiha Farman, Kohat, Pakistan. Last updated November 2026.
+</footer>
+
+<script>
+  // Highlight the nav link for the section currently in view.
+  (function () {
+    var links = document.querySelectorAll('nav a');
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && map[e.target.id]) {
+          links.forEach(function (a) { a.classList.remove('active'); });
+          map[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  })();
+</script>
 </body>
 </html>
