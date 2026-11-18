@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Madiha Farman </title>
+<title>Madiha Farman</title>
 <meta name="description" content="Madiha Farman is a computer science student at Kohat University of Science and Technology, building a reasoning-capable Urdu LLM for her final year project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +75,15 @@
   nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; padding: 0.2rem 0; border-bottom: 2px solid transparent; }
   nav a:hover { color: var(--ink); }
   nav a.active { color: var(--ink); border-bottom-color: var(--accent); }
+  nav a.cv-btn {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 0.2rem 0.8rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+  }
+  nav a.cv-btn:hover { background: var(--accent); color: var(--bg); }
 
   /* Hero */
   .hero {
@@ -227,6 +236,7 @@
         <li><a href="#talks">Talks</a></li>
         <li><a href="#hobbies">Hobbies</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a class="cv-btn" href="Madiha-Farman-CV.pdf" download>CV</a></li>
       </ul>
     </nav>
   </div>
@@ -239,6 +249,7 @@
     <p class="tagline">Computer science student at Kohat University of Science and Technology, Pakistan.</p>
     <div class="links">
       <!-- Replace YOUR-HANDLE with the part of your LinkedIn address after /in/ -->
+      <a href="Madiha-Farman-CV.pdf" download>Download CV</a>
       <a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
       <a href="https://github.com/MadihaFarman">GitHub</a>
       <a href="mailto:madihafarman22280@gmail.com">madihafarman22280@gmail.com</a>
@@ -307,7 +318,7 @@
       <h3>Research Intern, LLM and TTS</h3>
       <p class="meta"><span class="date">Jul to Sep 2026</span>CallRollin, National Incubation Center, Islamabad</p>
       <ul class="points">
-        <li>Compared three Urdu LLMs (Alif-8B, Qalb-8B, Riazi-8B) on training data, fine-tuning method and published results. None of them combines broad task coverage with strong reasoning.</li>
+        <li>Evaluated three Urdu LLMs (Alif-8B, Qalb-8B, Riazi-8B) on training data, fine-tuning method and published results. None of them combines broad task coverage with strong reasoning.</li>
         <li>Proposed a five-step plan for the team's own Urdu LLM: test base models (Qwen3, Llama-3.1, Gemma), build a billion-token Urdu corpus, fine-tune on human-written chain-of-thought data beyond math, set up an independent evaluation suite, and try RL-based reasoning tuning (GRPO).</li>
         <li>Tested about 60 Urdu TTS outputs on unvocalized text and found about 55 mispronounced. I traced the errors to homograph ambiguity from missing diacritics (zair, zabar, pesh) and proposed a diacritization step before synthesis.</li>
       </ul>
